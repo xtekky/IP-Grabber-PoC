@@ -11,6 +11,11 @@
 ```js
  * discord.gg/onlp | Waxor#9999
 ```
+## Features
+```js
+  * Grab user IP aswell as PC info and IP info
+  * fully silent, easy to integrate to script
+```
 
 ## To come
 ```js
@@ -21,12 +26,6 @@
   * Adding support for other systems (Only Windows for now)
 ```
 
-
-## Features
-```js
-  * Grab user IP aswell as PC info and IP info
-  * fully silent, easy to integrate to script
-```
 ## Requirements
 ```js
   * pip install requests
