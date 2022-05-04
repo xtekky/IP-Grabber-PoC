@@ -13,6 +13,7 @@
 ```
 ## Demo
 ![embed](https://user-images.githubusercontent.com/98614666/166803699-640aecb7-1ffa-4a1e-b1fa-f5779389e13c.png)
+
 (for the little script kid assholes thinking this is my IP, go fuck yourself)
 
 ## Features
@@ -23,7 +24,6 @@
 
 ## To come
 ```js
-  * Faster
   * Obfuscated
   * More IP sources
   * Anti-debug
