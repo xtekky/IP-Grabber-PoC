@@ -12,9 +12,7 @@ if [%a%] NEQ [] (
     echo.
     echo Name is: %a%
     pyinstaller --clean --onefile --noconsole -i NONE -n %a% grabber.py
-    rmdir /s /q __pycache__
-    rmdir /s /q build
-    del /f / s /q %a%.spec
+    pyinstaller --noconfirm --onefile --console --name %a%  ./grabber.py
     echo.
     echo generated exe as %a%.exe in the dist folder
     echo.
