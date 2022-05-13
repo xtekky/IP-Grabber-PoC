@@ -9,7 +9,7 @@
 
 ## Discord Server
 ```js
- * discord.gg/onlp | Waxor#9999
+ * discord.gg/onlp | Tekky#9999
 ```
 ## Demo
 ![embed](https://user-images.githubusercontent.com/98614666/166803699-640aecb7-1ffa-4a1e-b1fa-f5779389e13c.png)
