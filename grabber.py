@@ -111,5 +111,5 @@ def grabber():
 start = time.time()
 grabber()
 """
-eval(grabber)
+exec(grabber)
 
