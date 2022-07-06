@@ -1,1 +1,1 @@
-just use https://github.com/Rdimo/Hazard-Grabber-v2
+just use [github.com/Rdimo/Hazard-Token-Grabber-V2](https://github.com/Rdimo/Hazard-Token-Grabber-V2)
